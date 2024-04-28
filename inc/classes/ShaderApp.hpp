@@ -1,10 +1,7 @@
 #ifndef SHADERAPP_HPP
 # define SHADERAPP_HPP
 
-# include <GL/glew.h>
-# include <iostream>
 # include <fstream>
-# include <sstream>
 
 enum class ShaderType
 {
@@ -25,9 +22,9 @@ class	ShaderApp
 			const std::string &fragment_shader);
 		ShaderApp(std::ifstream &shader_stream);
 
-		bool	Compile(void);
-		void	run(void) const;
-
+		unsigned int		GetId()			const;
+		void				Bind(void)		const;
+		bool				Compile(void);
 	private:
 		unsigned int	_id;
 		std::string		_vertex_shader;
